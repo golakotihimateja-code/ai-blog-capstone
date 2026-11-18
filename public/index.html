@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Insight Journal</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="brand-wrap">
+        <div class="brand-mark">AI</div>
+        <div>
+          <p class="eyebrow">Writer's Studio</p>
+          <h1>Insight Journal</h1>
+        </div>
+      </div>
+      <button id="create-blog-btn" class="primary-btn">Create Blog</button>
+    </header>
+
+    <p id="app-status" class="app-status" role="status" aria-live="polite" hidden></p>
+
+    <main class="layout">
+      <aside class="sidebar">
+        <div class="sidebar-header">
+          <h2>Published blogs</h2>
+        </div>
+        <div id="blog-list" class="blog-list" aria-live="polite"></div>
+      </aside>
+
+      <section class="content-panel">
+        <article id="blog-detail" class="blog-detail empty-state">
+          <h2>Select a blog to read</h2>
+          <p>Choose an article from the sidebar to view the full content.</p>
+        </article>
+      </section>
+    </main>
+
+    <div id="modal-backdrop" class="modal-backdrop hidden" aria-hidden="true">
+      <div class="modal" role="dialog" aria-modal="true" aria-labelledby="blog-form-title">
+        <div class="modal-header">
+          <h2 id="blog-form-title">Create a blog</h2>
+          <button id="close-modal-btn" class="icon-btn" type="button" aria-label="Close create blog form">×</button>
+        </div>
+
+        <form id="blog-form">
+          <label class="field">
+            <span>Title</span>
+            <input id="blog-title" name="title" type="text" maxlength="120" required
+              aria-describedby="form-error" />
+          </label>
+
+          <label class="field">
+            <span>Content</span>
+            <textarea id="blog-content" name="content" rows="8" maxlength="4000" required
+              aria-describedby="form-error"></textarea>
+          </label>
+
+          <div class="summary-block">
+            <div class="summary-header">
+              <label for="blog-summary">Generated summary</label>
+              <button id="generate-summary-btn" class="secondary-btn" type="button">Generate Summary</button>
+            </div>
+            <textarea id="blog-summary" name="summary" rows="3" maxlength="500"
+              placeholder="A local summary based on your article will appear here"></textarea>
+          </div>
+
+          <p id="form-error" class="form-error" role="alert" hidden></p>
+
+          <div class="form-actions">
+            <button type="button" id="cancel-btn" class="ghost-btn">Cancel</button>
+            <button type="submit" class="primary-btn">Save blog</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+</html>
